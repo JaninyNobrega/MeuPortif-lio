@@ -1,0 +1,309 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('./img/opcao4.jpeg') no-repeat center center/cover;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalho */
+header {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: transform 0.5s ease;
+}
+
+.logo img:hover{
+  transform: scale(1.3);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #964b00; /* Cor do efeito */
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  transform: translateX(0); /* Desliza o efeito para a direita */
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+/* Seção Início */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  margin-bottom: 20px;
+}
+
+.hero-content {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Peso da fonte (negrito) */
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.btn{
+  background-color: #964b00; 
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color:#4D4DFF;
+}
+
+.btn-whats {
+  background-color: #964b00; /* Cor do WhatsApp */
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-whats:hover {
+  background-color: #006400; /* Cor do WhatsApp (hover) */
+}
+
+/* Seções */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Peso da fonte (negrito) */
+}
+
+.sobre-content {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.sobre-content p{
+  font-family: 'Fira Code', monospace;
+  text-align: center;
+}
+/* Projetos */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.projeto-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.projeto-card:hover {
+  transform: translateY(-10px);
+}
+
+.projeto-card img {
+  width: 100%; /* Largura fixa */
+  height: 200px; /* Altura fixa */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  border-radius: 10px; /* Bordas arredondadas (opcional) */
+}
+@media (max-width: 768px) {
+  .projeto-card img {
+      height: 150px; /* Altura menor para dispositivos móveis */
+  }
+}
+.projeto-card img {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.projeto-card img:hover {
+  transform: scale(1.05); /* Aumenta levemente o tamanho */
+  filter: brightness(1.1); /* Aumenta o brilho */
+}
+
+.projeto-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Peso da fonte (negrito) */
+}
+
+.projeto-card p {
+  margin-top: 10px;
+  color: #666;
+}
+
+/* Contato */
+@keyframes destaque {
+  0%, 100% { text-shadow: 0 0 5px #964b00, 0 0 10px #964b00, 0 0 20px #964b00; }
+  50% { text-shadow: none; }
+}
+
+.destaque {
+  animation: destaque 4s infinite;
+}
+.contato-content {
+  text-align: center;
+}
+
+.contato-content p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Rodapé */
+footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.social-links a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #964b00; /* Cor do WhatsApp */
+}
+
+/* Animação de digitação */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Efeito de piscar o cursor */
+@keyframes blink-cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #8B4513; /* Cor marrom para o cursor */ }
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #8B4513; /* Cor marrom para o cursor */
+  animation: typing 4.5s steps(40, end), blink-cursor 0.75s step-end infinite;
+  animation-iteration-count: infinite; /* Repete infinitamente */
+  color: #8B4513; /* Cor marrom para o texto */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+}
