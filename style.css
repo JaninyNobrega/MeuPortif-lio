@@ -181,7 +181,7 @@ section h2 {
 
 /* Estilização da linha <hr> */
 hr.custom-hr {
-  width: 90%; /* Largura reduzida (ajuste a porcentagem conforme necessário) */
+  width: 90%; /* Largura reduzida */
   height: 8px; /* Espessura aumentada */
   margin: 40px auto; /* Centraliza horizontalmente e adiciona espaço vertical */
   border: none; /* Remove a borda padrão */
@@ -195,10 +195,10 @@ hr.custom-hr {
       #5D4037  /* Marrom escuro */
   );
   background-size: 200% auto;
-  animation: gradient-shift 3s ease infinite; /* Animação opcional do degradê */
+  animation: gradient-shift 3s ease infinite; /* Animação do degradê */
 }
 
-/* Animação para o degradê (opcional) */
+/* Animação para o degradê */
 @keyframes gradient-shift {
   0% { background-position: 0% center; }
   100% { background-position: 100% center; }
