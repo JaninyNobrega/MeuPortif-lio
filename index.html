@@ -19,6 +19,7 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -53,6 +54,70 @@
                 Em 2024 abandonei o agro e mergulhei no mundo da tecnologia, com background em engenharia busco constantemente novos desafios e oportunidades para contribuir no sucesso de novos projetos. <br>
                 Saiba mais, acesse meu Currículo <a href="https://drive.google.com/file/d/1fxkZMcWPi4cZcMeriVvXc54ks7j_ghs6/view?usp=sharing" download target="_blank">aqui</a>.
             </p>
+        </div>
+    </section>
+
+    <hr class="custom-hr">
+    
+    <!-- Nova Seção: Tecnologias -->
+    <section id="tecnologias" class="tecnologias">
+        <h2>Tecnologias</h2>
+        <div class="carrossel-container">
+            <button class="carrossel-btn carrossel-btn-prev">&#10094;</button>
+            <div class="carrossel">
+                <div class="carrossel-item html">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML</span>
+                </div>
+                <div class="carrossel-item css">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS</span>
+                </div>
+                <div class="carrossel-item js">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="carrossel-item react">
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                </div>
+                <div class="carrossel-item next">
+                    <i class="fas fa-bold"></i>
+                    <span>Next.js</span>
+                </div>
+                <div class="carrossel-item node">
+                    <i class="fab fa-node-js"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="carrossel-item python">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="carrossel-item php">
+                    <i class="fab fa-php"></i>
+                    <span>PHP</span>
+                </div>
+                <div class="carrossel-item laravel">
+                    <i class="fab fa-laravel"></i>
+                    <span>Laravel</span>
+                </div>
+                <div class="carrossel-item mongodb">
+                    <i class="fas fa-database"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="carrossel-item postgresql">
+                    <i class="fas fa-database"></i>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="carrossel-item mysql">
+                    <i class="fas fa-database"></i>
+                    <span>MySQL</span>
+                </div>
+            </div>
+            <button class="carrossel-btn carrossel-btn-next">&#10095;</button>
+            <div class="carrossel-dots">
+                <!-- Os dots serão adicionados via JavaScript -->
+            </div>
         </div>
     </section>
 
@@ -116,6 +181,155 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+        // Menu Mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Carrossel de Tecnologias
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrossel = document.querySelector('.carrossel');
+            const items = document.querySelectorAll('.carrossel-item');
+            const prevBtn = document.querySelector('.carrossel-btn-prev');
+            const nextBtn = document.querySelector('.carrossel-btn-next');
+            const dotsContainer = document.querySelector('.carrossel-dots');
+            
+            let currentIndex = 0;
+            const itemsToShow = 5; // Número de itens visíveis por vez
+            let autoSlideInterval;
+            
+            // Criar dots de navegação
+            for (let i = 0; i < Math.ceil(items.length / itemsToShow); i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                dotsContainer.appendChild(dot);
+            }
+            
+            const dots = document.querySelectorAll('.dot');
+            
+            // Ajustar itens visíveis com base no tamanho da tela
+            function updateItemsToShow() {
+                if (window.innerWidth < 480) {
+                    return 2;
+                } else if (window.innerWidth < 768) {
+                    return 3;
+                } else if (window.innerWidth < 1024) {
+                    return 4;
+                }
+                return 5;
+            }
+            
+            // Atualizar a posição do carrossel
+            function updateCarrossel() {
+                const itemsVisible = updateItemsToShow();
+                const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight) * 2;
+                const translateX = -currentIndex * itemWidth * itemsVisible;
+                carrossel.style.transform = `translateX(${translateX}px)`;
+                
+                // Atualizar dots ativos
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Navegar para um slide específico
+            function goToSlide(index) {
+                const itemsVisible = updateItemsToShow();
+                currentIndex = index;
+                if (currentIndex < 0) currentIndex = 0;
+                if (currentIndex > Math.ceil(items.length / itemsVisible) - 1) {
+                    currentIndex = Math.ceil(items.length / itemsVisible) - 1;
+                }
+                updateCarrossel();
+                resetAutoSlide();
+            }
+            
+            // Event listeners para os botões
+            prevBtn.addEventListener('click', function() {
+                const itemsVisible = updateItemsToShow();
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarrossel();
+                }
+                resetAutoSlide();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                const itemsVisible = updateItemsToShow();
+                if (currentIndex < Math.ceil(items.length / itemsVisible) - 1) {
+                    currentIndex++;
+                    updateCarrossel();
+                }
+                resetAutoSlide();
+            });
+            
+            // Iniciar slideshow automático
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    const itemsVisible = updateItemsToShow();
+                    if (currentIndex < Math.ceil(items.length / itemsVisible) - 1) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    updateCarrossel();
+                }, 4000); // Muda a cada 4 segundos
+            }
+            
+            // Reiniciar o slideshow automático
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+            
+            // Inicializar o carrossel
+            updateCarrossel();
+            startAutoSlide();
+            
+            // Pausar o slideshow quando o mouse estiver sobre o carrossel
+            carrosselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            carrosselContainer.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+            
+            // Atualizar quando a janela for redimensionada
+            window.addEventListener('resize', function() {
+                currentIndex = 0; // Reset para o início
+                updateCarrossel();
+            });
+            
+            // Adicionar navegação por keyboard
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                }
+            });
+            
+            const carrosselContainer = document.querySelector('.carrossel-container');
+        });
+    </script>
 </body>
 </html>
