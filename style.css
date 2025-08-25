@@ -1,4 +1,4 @@
- * {
+   * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -207,54 +207,48 @@
             100% { background-position: 100% center; }
         }
 
-        /* Carrossel de Tecnologias */
+        /* Carrossel de Tecnologias com Swiper */
         .tecnologias {
             text-align: center;
             padding: 60px 20px;
         }
 
-        .carrossel-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-            padding: 20px 0;
+        .swiper {
+            width: 100%;
+            height: 200px;
+            padding: 40px 0;
         }
 
-        .carrossel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carrossel-item {
-            flex: 0 0 auto;
-            width: 150px;
-            margin: 0 15px;
+        .swiper-slide {
             text-align: center;
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9));
-            padding: 20px;
+            padding: 25px 15px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
         }
 
-        .carrossel-item:hover {
+        .swiper-slide:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .carrossel-item i {
+        .tech-icon {
             font-size: 3.5rem;
             margin-bottom: 15px;
-            display: block;
             transition: transform 0.3s ease;
         }
 
-        .carrossel-item:hover i {
+        .swiper-slide:hover .tech-icon {
             transform: scale(1.2);
         }
 
-        .carrossel-item span {
+        .tech-name {
             font-family: 'Fira Code', monospace;
             font-weight: bold;
             color: #333;
@@ -262,69 +256,49 @@
         }
 
         /* Cores específicas para cada tecnologia */
-        .html i { color: #E34F26; }
-        .css i { color: #1572B6; }
-        .js i { color: #F7DF1E; }
-        .react i { color: #61DAFB; }
-        .next i { color: #000000; }
-        .mongodb i { color: #47A248; }
-        .node i { color: #339933; }
-        .python i { color: #3776AB; }
-        .php i { color: #777BB4; }
-        .laravel i { color: #FF2D20; }
-        .postgresql i { color: #336791; }
-        .mysql i { color: #4479A1; }
+        .html .tech-icon { color: #E34F26; }
+        .css .tech-icon { color: #1572B6; }
+        .js .tech-icon { color: #F7DF1E; }
+        .react .tech-icon { color: #61DAFB; }
+        .next .tech-icon { color: #000000; }
+        .mongodb .tech-icon { color: #47A248; }
+        .node .tech-icon { color: #339933; }
+        .python .tech-icon { color: #3776AB; }
+        .php .tech-icon { color: #777BB4; }
+        .laravel .tech-icon { color: #FF2D20; }
+        .postgresql .tech-icon { color: #336791; }
+        .mysql .tech-icon { color: #4479A1; }
 
-        .carrossel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(150, 75, 0, 0.8);
-            color: white;
-            border: none;
-            border-radius: 50%;
+        /* Personalização da navegação do Swiper */
+        .swiper-button-next, .swiper-button-prev {
+            color: #964b00;
+            background: rgba(255, 255, 255, 0.8);
             width: 50px;
             height: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 10;
+            border-radius: 50%;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .carrossel-btn:hover {
-            background-color: rgba(150, 75, 0, 1);
-            transform: translateY(-50%) scale(1.1);
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        .carrossel-btn-prev {
-            left: 10px;
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(150, 75, 0, 0.8);
+            color: white;
+            transform: scale(1.1);
         }
 
-        .carrossel-btn-next {
-            right: 10px;
-        }
-
-        .carrossel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .dot {
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 1;
             width: 12px;
             height: 12px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .dot.active {
-            background-color: #fff;
+        .swiper-pagination-bullet-active {
+            background: #964b00;
             transform: scale(1.3);
         }
 
@@ -457,36 +431,39 @@
                 display: flex;
             }
             
-            .carrossel-item {
-                width: 120px;
-                padding: 15px;
+            .swiper {
+                height: 180px;
             }
             
-            .carrossel-item i {
+            .tech-icon {
                 font-size: 2.8rem;
             }
             
-            .carrossel-btn {
+            .swiper-button-next, .swiper-button-prev {
                 width: 40px;
                 height: 40px;
-                font-size: 18px;
+            }
+            
+            .swiper-button-next:after, .swiper-button-prev:after {
+                font-size: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .carrossel-item {
-                width: 100px;
-                margin: 0 10px;
-                padding: 12px;
+            .swiper {
+                height: 160px;
+                padding: 30px 0;
             }
             
-            .carrossel-item i {
+            .tech-icon {
                 font-size: 2.2rem;
             }
             
-            .carrossel-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
+            .tech-name {
+                font-size: 1rem;
+            }
+            
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
             }
         }
