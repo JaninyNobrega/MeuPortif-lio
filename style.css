@@ -227,7 +227,7 @@ hr.custom-hr {
   width: 100%; /* Largura fixa */
   height: 200px; /* Altura fixa */
   object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
-  border-radius: 10px; /* Bordas arredondadas (opcional) */
+  border-radius: 10px; /* Bordas arredondadas */
 }
 @media (max-width: 768px) {
   .projeto-card img {
