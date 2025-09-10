@@ -5,7 +5,8 @@
 }
 
 body {
-  background: url("./img/mw-D68JYzulix4-unsplash.jpg") no-repeat center center/cover;
+  background: url("./img/mw-D68JYzulix4-unsplash.jpg") no-repeat center
+    center/cover;
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
   min-height: 100vh;
@@ -180,8 +181,8 @@ section h2 {
 .sobre-content p {
   font-family: "Fira Code", monospace;
   text-align: center;
-  color: #4d4dff;
-  font-weight: 600;
+  color: black;
+  font-weight: 500;
 }
 
 /* Estilização da linha <hr> */
@@ -193,11 +194,11 @@ hr.custom-hr {
   border-radius: 10px;
   background: linear-gradient(
     90deg,
-    #5d4037,/* Marrom escuro */ 
-    #8d6e63,/* Marrom médio */ 
-    #bcaaa4,/* Marrom claro */
-    #8d6e63,/* Marrom médio */
-    #5d4037 /* Marrom escuro */
+    #5d4037,
+    /* Marrom escuro */ #8d6e63,
+    /* Marrom médio */ #bcaaa4,
+    /* Marrom claro */ #8d6e63,
+    /* Marrom médio */ #5d4037 /* Marrom escuro */
   );
   background-size: 200% auto;
   animation: gradient-shift 3s ease infinite; /* Animação do degradê */
@@ -380,7 +381,7 @@ hr.custom-hr {
 
 .projeto-card h3 {
   font-family: "Poppins", sans-serif;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 .projeto-card p {
