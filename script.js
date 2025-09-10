@@ -6,7 +6,6 @@ mobileMenu.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -24,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.carrossel-btn-next');
     
     let currentIndex = 0;
-    const itemsToShow = 4; // Número de itens visíveis por vez
+    const itemsToShow = 4; 
     
-    // Ajustar itens visíveis com base no tamanho da tela
+    
     function updateItemsToShow() {
         if (window.innerWidth < 768) {
             return 2;
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return 4;
     }
     
-    // Atualizar a posição do carrossel
+   
     function updateCarrossel() {
         const itemsVisible = updateItemsToShow();
         const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight) * 2;
