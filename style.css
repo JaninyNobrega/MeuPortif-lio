@@ -195,13 +195,13 @@ hr.custom-hr {
   background: linear-gradient(
     90deg,
     #5d4037,
-    /* Marrom escuro */ #8d6e63,
-    /* Marrom médio */ #bcaaa4,
-    /* Marrom claro */ #8d6e63,
-    /* Marrom médio */ #5d4037 /* Marrom escuro */
+     #8d6e63,
+     #bcaaa4,
+     #8d6e63,
+     #5d4037
   );
   background-size: 200% auto;
-  animation: gradient-shift 3s ease infinite; /* Animação do degradê */
+  animation: gradient-shift 3s ease infinite;
 }
 
 /* Animação para o degradê */
