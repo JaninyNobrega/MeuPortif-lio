@@ -389,6 +389,31 @@ hr.custom-hr {
   color: #666;
 }
 
+.projeto-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.btn-projeto {
+    background: #007bff;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: background 0.2s;
+}
+.btn-projeto:hover {
+    background: #0056b3;
+}
+.btn-clone {
+    background: #24292e;
+}
+.btn-clone:hover {
+    background: #444950;
+}
+
 .contato-content {
   text-align: center;
 }
